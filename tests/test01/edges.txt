@@ -1,0 +1,12 @@
+r w
+o b
+g r
+y o
+y g
+r b
+o g
+w b
+w o
+w g
+r y
+b y
