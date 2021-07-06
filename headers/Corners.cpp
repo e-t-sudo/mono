@@ -76,7 +76,7 @@ void Corners::setSolutionString(void){
     }
 }
 void Corners::permute(void){
-    int starter = 7;
+    int starter = buffer;
     int l = 0;
     START:
     int destination = getPos(corners[cubeletPosition(starter)-1]);
