@@ -24,13 +24,7 @@ int Corners::getPos(corner crnr){
         char X = currentCorner.c1, Y = currentCorner.c2, Z = currentCorner.c3;
         if((X==x&&Y==y&&Z==z)||(X==y&&Y==z&&Z==x)||(X==z&&Y==x&&Z==y)){ //no rotation required, clockwise rotation required, counter-clockwise rotation requried respectively
             position = i+1;
-            if(X==x&&Y==y&&Z==z){
-                orientation = 0;
-            }else if(X==z&&Y==x&&Z==y){
-                orientation = 1; //to be turned clockwise ==> position is incremented by +1;
-            }else if(X==y&&Y==z&&Z==x){
-                orientation = 2; //to be turned counter-clockwise ==> twice clockwise ==> position is incremented by +2;
-            }
+            orientation = (X==x&&Y==y&&Z==z)?0: (X==z&&Y==x&&Z==y)?1: 2;
             return (3*(position-1)+1)+orientation;
         }
     }
@@ -90,13 +84,9 @@ void Corners::permute(void){
             cornerPermuteVector.push_back(starter);
             goto START;
         }
-        if(destination%3==1){ //no rotation required
-            destination = getPos(corners[cubeletPosition(destination)-1]);
-        }else if(destination%3==2){
-            destination = getPos(counterTurn(corners[cubeletPosition(destination)-1]));
-        }else if(destination%3==0){
-            destination = getPos(clockTurn(corners[cubeletPosition(destination)-1]));
-        }
+        destination = (destination%3==1)?getPos(corners[cubeletPosition(destination)-1]): 
+                                (destination%3==2)?getPos(counterTurn(corners[cubeletPosition(destination)-1])): 
+                                    getPos(clockTurn(corners[cubeletPosition(destination)-1]));
         cornerPermuteVector.push_back(destination);
         solvedCornerPeices.push_back(cubeletPosition(destination));
     }
