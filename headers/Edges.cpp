@@ -67,7 +67,7 @@ void Edges::setSolutionString(void){
     }
 }
 void Edges::permute(void){
-    int starter = 3;
+    int starter = buffer;
     int l = 0;
     START:
     int destination = getPos(edges[cubeletPosition(starter)-1]);
