@@ -53,3 +53,6 @@ These tests were performed using the <a href="https://github.com/e-t-sudo/cerber
   <tr><td>Edges Solved</td><td><img src='./tests/test04/images/fully_solved.png' style='width: 200px'></td><td><b>F' U B' U2 F U' F' U2 F B U' E' L D' M F' U B' U2 F U' F' U2 F B U' M' D L' E D' M2 F' U B' U2 F U' F' U2 F B U' M2 D L' D M2 F' U B' U2 F U' F' U2 F B U' M2 D' L L2 D' M F' U B' U2 F U' F' U2 F B U' M' D L2 L D M2 F' U B' U2 F U' F' U2 F B U' M2 D' L' M D2 M F' U B' U2 F U' F' U2 F B U' M' D2 M' D2 M F' U B' U2 F U' F' U2 F B U' M' D2 E2 L D' M F' U B' U2 F U' F' U2 F B U' M' D L' E2 M' F' U B' U2 F U' F' U2 F B U' M F' U B' U2 F U' F' U2 F B U' D' M F' U B' U2 F U' F' U2 F B U' M' D D2 M2 F' U B' U2 F U' F' U2 F B U' M2 D2 F' U B' U2 F U' F' U2 F B U'
 </b></td></tr>
 </table>
+
+### It is more than just a "solver"!
+Unlike Cerb, Mono allows you to edit the solved state files to any configuration you want the cube to have. `./solved/solvedEdges.txt` and `./solved/solvedcorners.txt` can be edited using the same lettering scheme that you would use to create the configuration files for your scrambled cube. The generated solution would take the cube from the scrambled state, specified by the `EDGE_CONFIG` and `CORNER_CONFIG` files to the final state which is given in `./solved/solvedEdges.txt` and `./solved/solvedCorners.txt`.
