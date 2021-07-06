@@ -5,7 +5,7 @@ class Edges{
     public:
         std::string solutionString;
         std::string bufferMove[24] = {"M D2 M", "M'", "", "", "", "M2 D2 M", "L2 D M2", "L2 D' M", "L D' M", "L D M2", "E' L D' M", "E' L D M2", "E2 L D' M", "E L' D' M", "L' D M2", "L' D' M", "D2 M", "M2", "D M", "D' M2", "M", "D2 M2", "D' M", "D M2"};
-        const int buffer = 2;
+        const int buffer = 3;
         typedef struct edge{
             char e1, e2;
         } edge;
