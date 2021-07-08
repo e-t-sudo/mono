@@ -43,16 +43,14 @@ int Corners::nextUnsolved(void){
     }
 return 0;
 }
-Corners::corner Corners::counterTurn(corner crnr){
-    char x = crnr.c1, y = crnr.c2, z = crnr.c3;     //      x                          y   
-    corner ret; ret.c1 = y; ret.c2 = z; ret.c3 = x; //                ---------->       
-    return ret;                                     //   z      y                   x      z
-}
-Corners::corner Corners::clockTurn(corner crnr){
-    char x = crnr.c1, y = crnr.c2, z = crnr.c3;     //      x                          z   
-    corner ret; ret.c1 = z; ret.c2 = x; ret.c3 = y; //                ---------->       
-    return ret;                                     //   z      y                   y      x
-}
+Corners::corner Corners::counterTurn(corner crnr){  //      x                          y   
+    char x = crnr.c1, y = crnr.c2, z = crnr.c3;     //                ---------->       
+    corner ret; ret.c1 = y; ret.c2 = z; ret.c3 = x; //   z      y                   x      z
+    return ret;
+}                                                   //      x                          z 
+Corners::corner Corners::clockTurn(corner crnr){    //                ---------->       
+    return counterTurn(counterTurn(crnr));          //   z      y                   y      x
+}                                                   // a clock turn === (n-1) counter clockwise turns, where n is the nubmer of vertices
 void Corners::setSolutionString(void){
     std::string terminator = " ";
     if(Cube::parity==false) solutionString += (Cube::jPerm + terminator);
