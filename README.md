@@ -3,21 +3,21 @@ One algorithm to rule them all!
 
 ## The basic idea
 
-If the parity is not disturbed during move execution, then the edge lattice and corner lattice can be solved separately without affecting each other. That is precisely what <a href="https://github.com/e-t-sudo/cerb">Cerb</a> and Mono solvers are based on. They permute the edge peices and the corner peices in different stages without distrubing the rest of the cube. The algorithm is itself fairly simple. In fact, it is probably the closest one could get to an intuitive solve without having to learn multiple move sequences. This algorithm basically comes down to solving the entire cube by a series of swaps. It would be theoritically very easy(not neccessarily fast) to solve the cube using a single algorithm that can swap two peices without affecting the rest of the cube. But alas, such an algorithm does not exist because it is not possible to swap two cubelets on a Rubik's cube without disturbing the other peices. But, we have many algorithms that do something which closely resembles that. For instance, in PLL stage of CPOF, we have the following non-exhaustive list of standard algorithms - 
+If the parity is not disturbed during move execution, then the edge lattice and corner lattice can be solved separately without affecting each other. That is precisely what <a href="https://github.com/erstan/cerb">Cerb</a> and Mono solvers are based on. They permute the edge peices and the corner peices in different stages without distrubing the rest of the cube. The algorithm is itself fairly simple. In fact, it is probably the closest one could get to an intuitive solve without having to learn multiple move sequences. This algorithm basically comes down to solving the entire cube by a series of swaps. It would be theoritically very easy(not neccessarily fast) to solve the cube using a single algorithm that can swap two peices without affecting the rest of the cube. But alas, such an algorithm does not exist because it is not possible to swap two cubelets on a Rubik's cube without disturbing the other peices. But, we have many algorithms that do something which closely resembles that. For instance, in PLL stage of CPOF, we have the following non-exhaustive list of standard algorithms - 
 * U-Perms and A-Prems that cycle triplets of edge or corner peices in clockwise or counter clockwise directions
 * H-Perms, E-Perms and Z-Perms that swap two pairs of edge peices while keeping the rest of the cube intact
 * F-Perms, J-Perms, N-Perms, R-Perms, T-Perms, V-Perms and Y-Perms are the most interesting of the three classes because these algorithms swap a pair of edge peices and a pair of corner peices without altering any other cubelets. Any one of these algorithms can be used to completely solve a Rubik's cube by a series of appropriate swaps. 
 
 ## What's so special about Mono?
 
-Mono Rubik's cube solver is an upgrade over the <a href="https://github.com/e-t-sudo/cerb">Cerb</a> solver. Cerb solves the 3x cube in three stages - orientation of corner peices, permuation of corner peices and permutation of edge peices. Mono however combines the corner orientation and permuation steps, thereby making the implementation much simpler and also significantly decreasing the average number of moves in the generated solution. 
+Mono Rubik's cube solver is an upgrade over the <a href="https://github.com/erstan/cerb">Cerb</a> solver. Cerb solves the 3x cube in three stages - orientation of corner peices, permuation of corner peices and permutation of edge peices. Mono however combines the corner orientation and permuation steps, thereby making the implementation much simpler and also significantly decreasing the average number of moves in the generated solution. 
 
 ## Usage
 
-Mono uses the same <a href="https://github.com/e-t-sudo/cerb#Usage">lettering scheme</a> as the cerb solver. Create the edge (Path: `EDGE_CONFIG_FILE_PATH`) and corner (Path: `CORNER_CONFIG_FILE_PATH`) configuration files for your scrambled cube and invoke `solution(EDGE_CONFIG_FILE_PATH, CORNER_CONFIG_FILE_PATH)` function which returns the solution move sequence as a `std::string`
+Mono uses the same <a href="https://github.com/erstan/cerb#Usage">lettering scheme</a> as the cerb solver. Create the edge (Path: `EDGE_CONFIG_FILE_PATH`) and corner (Path: `CORNER_CONFIG_FILE_PATH`) configuration files for your scrambled cube and invoke `solution(EDGE_CONFIG_FILE_PATH, CORNER_CONFIG_FILE_PATH)` function which returns the solution move sequence as a `std::string`
 
 ## Tests
-These tests were performed using the <a href="https://github.com/e-t-sudo/cerberus">cerberus</a> simulator.
+These tests were performed using the <a href="https://github.com/erstan/cerberus">cerberus</a> simulator.
 
 ### Test (I)
 <table>
